@@ -35,7 +35,8 @@ flowchart TD
     C["💡 01 · LED que parpadea<br/>primera salida digital"] --> D
     D["🎛️ 02 · Un ejemplo por tipo de pin<br/>botón · potenciómetro · PWM · touch"] --> E
     E["📡 03 · De la ESP32 a tu compu<br/>la ESP32 mide, Python dibuja"] --> H
-    H["📈 04 · Gráfica en vivo<br/>matplotlib"] --> G
+    H["📈 04 · Gráfica en vivo<br/>matplotlib"] --> W
+    W["🌐 05 · Servidor web<br/>la ESP32 por WiFi"] --> G
     G["🏁 Tu proyecto final"]
 ```
 
@@ -47,6 +48,7 @@ flowchart TD
 | 3 | [`02_tipos_de_pin/`](02_tipos_de_pin/) | 🔲 ESP32 | Entrada digital, ADC, PWM, touch, sensores |
 | 4 | [`03_esp_a_python/`](03_esp_a_python/) | 🔲 + 💻 | Mandar datos por USB y visualizarlos en Python |
 | 5 | [`04_grafica_en_vivo/`](04_grafica_en_vivo/) | 🔲 + 💻 | Graficar los sensores en vivo con matplotlib |
+| 6 | [`05_servidor_web/`](05_servidor_web/) | 🔲 + 📱 | La ESP32 crea su red WiFi y sirve una página web |
 
 ---
 
@@ -106,8 +108,10 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
 ├── 03_esp_a_python/
 │   ├── esp_envia.py          ← 🔲 en la ESP32
 │   └── pc_grafica.py         ← 💻 en tu compu (barras en la terminal)
-└── 04_grafica_en_vivo/
-    └── grafica.py            ← 💻 en tu compu (matplotlib; usa el mismo esp_envia.py)
+├── 04_grafica_en_vivo/
+│   └── grafica.py            ← 💻 en tu compu (matplotlib; usa el mismo esp_envia.py)
+└── 05_servidor_web/
+    └── servidor.py           ← 🔲 en la ESP32 (WiFi + página web)
 ```
 
 ---
