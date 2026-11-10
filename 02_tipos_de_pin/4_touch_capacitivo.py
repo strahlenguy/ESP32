@@ -19,7 +19,11 @@ Correr:
 
 import time
 
-from machine import Pin, TouchPad
+try:
+    from machine import Pin, TouchPad
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 02_tipos_de_pin/4_touch_capacitivo.py")
 
 toque = TouchPad(Pin(4))
 

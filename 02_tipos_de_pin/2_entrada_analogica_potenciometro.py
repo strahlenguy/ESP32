@@ -17,7 +17,11 @@ Correr:
 
 import time
 
-from machine import ADC, Pin
+try:
+    from machine import ADC, Pin
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 02_tipos_de_pin/2_entrada_analogica_potenciometro.py")
 
 pot = ADC(Pin(34))
 pot.atten(ADC.ATTN_11DB)     # rango completo ~0 – 3.3 V

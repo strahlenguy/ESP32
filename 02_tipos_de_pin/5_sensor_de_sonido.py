@@ -18,7 +18,11 @@ Correr:
 
 import time
 
-from machine import ADC, Pin
+try:
+    from machine import ADC, Pin
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 02_tipos_de_pin/5_sensor_de_sonido.py")
 
 mic = ADC(Pin(35))
 mic.atten(ADC.ATTN_11DB)

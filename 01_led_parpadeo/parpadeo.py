@@ -14,7 +14,11 @@ Detener: Ctrl+C en la terminal y luego el botón EN (o RST) de la tarjeta.
 
 import time
 
-from machine import Pin
+try:
+    from machine import Pin
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 01_led_parpadeo/parpadeo.py")
 
 PIN_LED = 23          # LED externo en la protoboard
 PIN_LED_PLACA = 2     # LED azul que trae la mayoría de las DevKit

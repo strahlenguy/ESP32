@@ -20,7 +20,11 @@ Quitarlo después:
 
 import time
 
-from machine import Pin, TouchPad
+try:
+    from machine import Pin, TouchPad
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote cp 03_esp_a_python/esp_envia.py :main.py + reset")
 
 PINES_TOUCH = [4, 27]          # agrega más pines touch aquí si quieres
 sensores = [TouchPad(Pin(numero)) for numero in PINES_TOUCH]

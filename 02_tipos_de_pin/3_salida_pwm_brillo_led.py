@@ -18,7 +18,11 @@ Correr:
 
 import time
 
-from machine import PWM, Pin
+try:
+    from machine import PWM, Pin
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 02_tipos_de_pin/3_salida_pwm_brillo_led.py")
 
 led = PWM(Pin(23), freq=1000, duty_u16=0)   # duty_u16: 0 (0 %) … 65535 (100 %)
 PASO = 1024

@@ -18,7 +18,11 @@ Correr:
 
 import time
 
-from machine import Pin
+try:
+    from machine import Pin
+except ImportError:  # estás en tu compu, no en la ESP32
+    raise SystemExit("Este script corre EN la ESP32. Usa:\n"
+                     "  uv run mpremote run 02_tipos_de_pin/1_entrada_digital_boton.py")
 
 boton = Pin(18, Pin.IN, Pin.PULL_UP)
 led = Pin(23, Pin.OUT)
