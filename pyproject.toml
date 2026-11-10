@@ -1,0 +1,15 @@
+[project]
+name = "proyecto-final-pe-ce"
+version = "0.1.0"
+description = "Semilla para el proyecto final de Programación Estructurada y Circuitos Electrónicos (CUTLAJO): ESP32 + MicroPython + Python"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "esptool>=5.6",    # instala MicroPython en la ESP32
+    "mpremote>=1.29",  # corre y copia scripts a la ESP32
+    "pyserial>=3.5",   # habla con la ESP32 por el puerto serie desde tu compu
+]
+
+[tool.uv]
+# Esto no es una librería: uv solo crea el entorno y instala dependencias.
+package = false

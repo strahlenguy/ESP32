@@ -1,0 +1,13 @@
+# Python / uv
+.venv/
+__pycache__/
+*.pyc
+
+# Firmware descargado (cada quien baja el suyo)
+firmware/*.bin
+
+# Sistema
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
