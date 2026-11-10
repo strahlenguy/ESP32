@@ -31,7 +31,7 @@ proyecto, de punta a punta, es Python.
 flowchart TD
     A["📖 INSTALACION.md<br/>uv · git · drivers · uv sync"] --> B
     B["🔌 00 · Detección<br/>¿mi compu ve la ESP32?"] --> F
-    F["💾 Instalar MicroPython<br/>(paso 4 de INSTALACION.md)"] --> C
+    F["💾 Instalar MicroPython<br/>uv run python firmware/instalar.py"] --> C
     C["💡 01 · LED que parpadea<br/>primera salida digital"] --> D
     D["🎛️ 02 · Un ejemplo por tipo de pin<br/>botón · potenciómetro · PWM · touch · micrófono"] --> E
     E["📡 03 · De la ESP32 a tu compu<br/>la ESP32 mide, Python dibuja"] --> G
@@ -40,7 +40,7 @@ flowchart TD
 
 | Paso | Carpeta | Corre en | Lo que aprendes |
 |---|---|---|---|
-| 0 | [`INSTALACION.md`](INSTALACION.md) | — | Dejar el entorno listo en Windows, Linux o Mac |
+| 0 | [`INSTALACION.md`](INSTALACION.md) | — | Dejar el entorno listo en Windows |
 | 1 | [`00_deteccion_esp/`](00_deteccion_esp/) | 💻 compu | Que tu sistema vea la ESP32 y hable con ella |
 | 2 | [`01_led_parpadeo/`](01_led_parpadeo/) | 🔲 ESP32 | Salida digital, ley de Ohm, tu primer circuito |
 | 3 | [`02_tipos_de_pin/`](02_tipos_de_pin/) | 🔲 ESP32 | Entrada digital, ADC, PWM, touch, sensores |
@@ -55,7 +55,8 @@ git clone https://github.com/strahlenguy/esp32.git mi-proyecto
 cd mi-proyecto
 uv sync                                         # crea el entorno (Python + librerías)
 
-uv run python 00_deteccion_esp/windows.py       # o linux.py / mac.py
+uv run python 00_deteccion_esp/windows.py       # ¿la ve?
+uv run python firmware/instalar.py              # MicroPython (una vez)
 uv run mpremote run 01_led_parpadeo/parpadeo.py # ¡LED parpadeando!
 ```
 
@@ -85,11 +86,13 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
 ├── pyproject.toml            ← dependencias del proyecto (uv)
 ├── uv.lock                   ← versiones exactas (no lo edites a mano)
 ├── .python-version           ← versión de Python que usa uv
-├── firmware/                 ← aquí guardas el .bin de MicroPython
+├── firmware/
+│   ├── instalar.py           ← instala MicroPython con un comando
+│   └── ESP32_GENERIC-….bin   ← el firmware
 ├── 00_deteccion_esp/
 │   ├── windows.py
-│   ├── linux.py
-│   ├── mac.py
+│   ├── linux.py              ← (por si alguien usa Linux)
+│   ├── mac.py                ← (por si alguien usa Mac)
 │   └── comun.py              ← lo que comparten los tres
 ├── 01_led_parpadeo/
 │   └── parpadeo.py
@@ -136,8 +139,8 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
 | La compu no ve la tarjeta | Cambia el cable (muchos solo cargan) y revisa el driver → `00_deteccion_esp/` |
 | `Permission denied` (Linux) | `sudo usermod -aG dialout $USER` y vuelve a iniciar sesión |
 | `busy` / `Acceso denegado` | Otro programa tiene el puerto: cierra Arduino IDE, Thonny o la otra terminal |
-| `could not enter raw repl` | La ESP32 no tiene MicroPython → paso 4 de `INSTALACION.md` |
-| Grabando: `Failed to connect` | Mantén el botón **BOOT** mientras dice `Connecting....` |
+| `could not enter raw repl` | La ESP32 no tiene MicroPython → `uv run python firmware/instalar.py` |
+| Instalando MicroPython: `Failed to connect` | Mantén el botón **BOOT** mientras dice `Connecting....` |
 | El script corre pero el circuito no hace nada | Revisa GND común, la orientación del LED y que el pin sea el correcto |
 
 ---

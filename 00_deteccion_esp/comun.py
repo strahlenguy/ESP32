@@ -157,7 +157,7 @@ def ejecutar_diagnostico(sistema_esperado, nombre_sistema, consejos_sin_puerto,
     if respuesta is None:
         print("🟡 El puerto abre bien, pero la ESP32 no respondió como MicroPython.")
         print("   Es normal si todavía no le instalas MicroPython:")
-        print("   sigue el paso 'Instalar MicroPython' de INSTALACION.md y vuelve a correr esto.")
+        print("   instálalo con:  uv run python firmware/instalar.py")
         return 1
 
     maquina, _, version = respuesta.partition("|")
