@@ -9,7 +9,6 @@ Aquí hay **un script por tipo**. Cada uno trae su circuito en el encabezado.
 | 2 | `2_entrada_analogica_potenciometro.py` | Entrada analógica (ADC) | Potenciómetro 10 kΩ | GPIO34 |
 | 3 | `3_salida_pwm_brillo_led.py` | Salida PWM | El LED de la 01 | GPIO23 |
 | 4 | `4_touch_capacitivo.py` | Touch capacitivo | Un cable (¡o un plátano!) | GPIO4 |
-| 5 | `5_sensor_de_sonido.py` | Entrada analógica con sensor | Micrófono KY-038 | GPIO35 |
 
 Correr cualquiera:
 
@@ -24,7 +23,7 @@ uv run mpremote run 02_tipos_de_pin/4_touch_capacitivo.py
    3V3 ─────┤ 3V3                      GND ├───── GND (riel azul −)
             │                              │
  pot. ──────┤ GPIO34 (ADC)    (salida) GPIO23├──[220 Ω]──►|── GND   LED
- micro AO ──┤ GPIO35 (ADC)    (entrada)GPIO18├──[botón]────── GND
+            │                 (entrada)GPIO18├──[botón]────── GND
             │                              │
  cable ─────┤ GPIO4  (touch)               │
             └──────────────────────────────┘
@@ -52,6 +51,7 @@ Puedes dejar **todo** conectado a la vez: cada script usa su propio pin.
 | Sensor | Tipo de pin | Idea |
 |---|---|---|
 | Fotorresistencia (LDR) + resistencia 10 kΩ | ADC | Detectar luz / sombra |
+| Micrófono KY-038 (salida AO) | ADC | Medir qué tan fuerte es el ruido |
 | Sensor de humedad de suelo | ADC | Planta que avisa cuando tiene sed |
 | HC-SR04 (ultrasónico) | Digital (2 pines) | Medir distancia |
 | DHT11 / DHT22 | Digital (protocolo propio) | Temperatura y humedad |

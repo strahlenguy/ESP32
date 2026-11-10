@@ -33,7 +33,7 @@ flowchart TD
     B["🔌 00 · Detección<br/>¿mi compu ve la ESP32?"] --> F
     F["💾 Instalar MicroPython<br/>uv run python firmware/instalar.py"] --> C
     C["💡 01 · LED que parpadea<br/>primera salida digital"] --> D
-    D["🎛️ 02 · Un ejemplo por tipo de pin<br/>botón · potenciómetro · PWM · touch · micrófono"] --> E
+    D["🎛️ 02 · Un ejemplo por tipo de pin<br/>botón · potenciómetro · PWM · touch"] --> E
     E["📡 03 · De la ESP32 a tu compu<br/>la ESP32 mide, Python dibuja"] --> G
     G["🏁 Tu proyecto final"]
 ```
@@ -100,8 +100,7 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
 │   ├── 1_entrada_digital_boton.py
 │   ├── 2_entrada_analogica_potenciometro.py
 │   ├── 3_salida_pwm_brillo_led.py
-│   ├── 4_touch_capacitivo.py
-│   └── 5_sensor_de_sonido.py
+│   └── 4_touch_capacitivo.py
 └── 03_esp_a_python/
     ├── esp_envia.py          ← 🔲 en la ESP32
     └── pc_grafica.py         ← 💻 en tu compu
@@ -118,7 +117,7 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
             3V3 ─┤ ●                       ● ├─ GND
                  │                           │
   potenciómetro ─┤ ● GPIO34         GPIO23 ● ├─ LED (+220 Ω)
-   micrófono AO ─┤ ● GPIO35         GPIO18 ● ├─ botón
+                 │                  GPIO18 ● ├─ botón
                  │                           │
                  │                   GPIO4 ● ├─ touch 1
    touch 2 ──────┤ ● GPIO27                  │

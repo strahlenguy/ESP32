@@ -18,8 +18,17 @@ Para el proyecto final, cambia la función dibujar() por tu propio visualizador
 
 import sys
 
-import serial
-from serial.tools import list_ports
+if sys.implementation.name == "micropython":   # lo mandaron a la ESP32 por error
+    raise SystemExit("Este script corre EN TU COMPU. Usa:\n"
+                     "  uv run python 03_esp_a_python/pc_grafica.py")
+
+try:
+    import serial
+    from serial.tools import list_ports
+except ImportError:                            # se corrió sin uv run
+    raise SystemExit("Falta pyserial. Corre el script con uv desde la raíz del repo:\n"
+                     "  uv sync\n"
+                     "  uv run python 03_esp_a_python/pc_grafica.py")
 
 VELOCIDAD = 115200
 ANCHO_BARRA = 40

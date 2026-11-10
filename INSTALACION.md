@@ -20,7 +20,7 @@ Todos los comandos se escriben en **PowerShell** (búscalo en el menú Inicio).
 | ESP32 DevKit (ESP32-WROOM-32, 30 o 38 pines) | La más común en tiendas de electrónica |
 | Cable USB **de datos** | ⚠️ Muchos cables solo cargan. Si la compu no ve la tarjeta, cambia el cable primero |
 | Protoboard, LED, resistencia de 220 Ω, cables dupont | Para la práctica 01 |
-| Botón, potenciómetro de 10 kΩ, módulo de micrófono KY-038 | Para la práctica 02 (opcionales) |
+| Botón de 4 patitas, potenciómetro de 10 kΩ | Para la práctica 02 |
 
 Opcional pero recomendado: [VS Code](https://code.visualstudio.com/) con la extensión de Python.
 
