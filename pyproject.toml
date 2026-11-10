@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "esptool>=5.6",    # instala MicroPython en la ESP32
+    "matplotlib>=3.10",  # grafica los datos en vivo (práctica 04)
     "mpremote>=1.29",  # corre y copia scripts a la ESP32
     "pyserial>=3.5",   # habla con la ESP32 por el puerto serie desde tu compu
 ]

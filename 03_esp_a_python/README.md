@@ -41,7 +41,7 @@ uv run mpremote rm :main.py + reset
 
 - **Más sensores:** agrega pines a `PINES_TOUCH` en `esp_envia.py`. `pc_grafica.py` se adapta solo.
 - **Otro visualizador:** solo cambia la función `dibujar()` de `pc_grafica.py`
-  (con `uv add matplotlib`, `uv add pygame`, etc.).
+  (con `uv add pygame`, etc.). La [práctica 04](../04_grafica_en_vivo/) ya lo hace con matplotlib.
 - **Ajusta los números:** `VALOR_MAXIMO` y `UMBRAL_TOQUE` dependen de tus cables
   y de lo que toques. Mira los valores primero y luego elige.
 

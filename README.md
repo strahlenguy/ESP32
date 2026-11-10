@@ -34,7 +34,8 @@ flowchart TD
     F["💾 Instalar MicroPython<br/>uv run python firmware/instalar.py"] --> C
     C["💡 01 · LED que parpadea<br/>primera salida digital"] --> D
     D["🎛️ 02 · Un ejemplo por tipo de pin<br/>botón · potenciómetro · PWM · touch"] --> E
-    E["📡 03 · De la ESP32 a tu compu<br/>la ESP32 mide, Python dibuja"] --> G
+    E["📡 03 · De la ESP32 a tu compu<br/>la ESP32 mide, Python dibuja"] --> H
+    H["📈 04 · Gráfica en vivo<br/>matplotlib"] --> G
     G["🏁 Tu proyecto final"]
 ```
 
@@ -45,6 +46,7 @@ flowchart TD
 | 2 | [`01_led_parpadeo/`](01_led_parpadeo/) | 🔲 ESP32 | Salida digital, ley de Ohm, tu primer circuito |
 | 3 | [`02_tipos_de_pin/`](02_tipos_de_pin/) | 🔲 ESP32 | Entrada digital, ADC, PWM, touch, sensores |
 | 4 | [`03_esp_a_python/`](03_esp_a_python/) | 🔲 + 💻 | Mandar datos por USB y visualizarlos en Python |
+| 5 | [`04_grafica_en_vivo/`](04_grafica_en_vivo/) | 🔲 + 💻 | Graficar los sensores en vivo con matplotlib |
 
 ---
 
@@ -101,9 +103,11 @@ Hay **dos tipos** de archivo `.py` en este repo. Cada uno lo dice en su primera 
 │   ├── 2_entrada_analogica_potenciometro.py
 │   ├── 3_salida_pwm_brillo_led.py
 │   └── 4_touch_capacitivo.py
-└── 03_esp_a_python/
-    ├── esp_envia.py          ← 🔲 en la ESP32
-    └── pc_grafica.py         ← 💻 en tu compu
+├── 03_esp_a_python/
+│   ├── esp_envia.py          ← 🔲 en la ESP32
+│   └── pc_grafica.py         ← 💻 en tu compu (barras en la terminal)
+└── 04_grafica_en_vivo/
+    └── grafica.py            ← 💻 en tu compu (matplotlib; usa el mismo esp_envia.py)
 ```
 
 ---
